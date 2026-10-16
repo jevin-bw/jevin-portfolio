@@ -23,6 +23,75 @@ p { margin: 0; }
   white-space: nowrap;
 }
 
+/* ---------- Landing ---------- */
+.landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+  text-align: center;
+  padding: 48px 24px;
+}
+.landing h1 { font-size: clamp(48px, 8vw, 88px); max-width: 12ch; }
+.landing-enter { font-size: 18px; padding: 16px 28px; }
+
+.intro-split { position: relative; min-height: 100vh; }
+.intro-pane {
+  position: absolute;
+  inset: 0;
+  color: var(--jw-on-bg);
+}
+.intro-pane--light { clip-path: polygon(0 0, 100% 0, 0 100%); }
+.intro-pane--dark { clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+.intro-pane .landing { position: relative; z-index: 1; min-height: 100%; }
+.enter-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.enter-transition.is-active { pointer-events: auto; }
+.dna-helix {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.intro-split.cursor-on-light,
+.intro-split.cursor-on-light * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%230B1F3A' d='M6 3l1 22 6-6 6 10 4-2-6-10 9-1z'/%3E%3C/svg%3E") 6 3, auto !important;
+}
+.intro-split.cursor-on-dark,
+.intro-split.cursor-on-dark * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23EFFAF6' stroke='%232B1055' stroke-width='1.5' d='M6 3l1 22 6-6 6 10 4-2-6-10 9-1z'/%3E%3C/svg%3E") 6 3, auto !important;
+}
+
+.theme-toggle {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  border: 2px solid var(--jw-on-bg);
+  background: var(--jw-surface);
+  box-shadow: 3px 4px 0 var(--jw-shadow-color);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+.theme-toggle:active { transform: translate(2px, 3px); box-shadow: none; }
+html[data-theme="dark"] .theme-sun,
+html:not([data-theme="dark"]) .theme-moon { display: none; }
+
 /* ---------- Nav ---------- */
 .site-header { border-bottom: var(--jw-border) solid var(--jw-on-bg); }
 .site-header .container {

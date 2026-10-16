@@ -10,9 +10,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Rammetto+One&family=Manrope:wght@400;600;800&display=swap");
 
 /* ---------- Light: Miami Mint (default) ---------- */
-:root {
+:root,
+[data-theme="light"] {
   /* Surfaces */
-  --jw-bg: #EFFAF6;            /* page background */
+  --jw-bg: #D4EEF9;            /* page background: light blue, still pale */
   --jw-surface: #FFFFFF;       /* cards, ticket, review boxes */
   --jw-band: #0B1F3A;          /* quiz band, footer, mix tile */
   --jw-on-band: #EFFAF6;
@@ -38,10 +39,19 @@
   --jw-shadow-color: #0B1F3A;  /* hard offset shadows */
   --jw-headline-shadow: #FF9ECF; /* extruded headline */
   --jw-grid-line: rgba(0, 0, 0, 0.06);
+
+  --jw-shadow-lg: 12px 12px 0 var(--jw-shadow-color), 0 28px 44px rgba(0, 0, 0, 0.2);
+  --jw-shadow-md: 6px 7px 0 var(--jw-shadow-color);
+  --jw-shadow-sm: 3px 4px 0 var(--jw-shadow-color);
+  --jw-gloss: linear-gradient(160deg, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0) 55%, rgba(0,0,0,0.1) 100%);
+  --jw-tile-bevel: inset 0 2px 0 rgba(255,255,255,0.5), inset 0 -5px 0 rgba(0,0,0,0.16);
+  --jw-extrude: 1px 1px 0 var(--jw-headline-shadow), 2px 2px 0 var(--jw-headline-shadow),
+                3px 3px 0 var(--jw-headline-shadow), 4px 4px 0 var(--jw-headline-shadow);
 }
 
 /* ---------- Dark: Miami Grape Night ---------- */
-:root[data-theme="dark"] {
+:root[data-theme="dark"],
+[data-theme="dark"] {
   --jw-bg: #2B1055;
   --jw-surface: #3D1A73;
   --jw-band: #0B1F3A;
@@ -60,6 +70,14 @@
   --jw-shadow-color: #EFFAF6;
   --jw-headline-shadow: #0B1F3A;
   --jw-grid-line: rgba(255, 255, 255, 0.08);
+
+  --jw-shadow-lg: 12px 12px 0 var(--jw-shadow-color), 0 28px 44px rgba(0, 0, 0, 0.2);
+  --jw-shadow-md: 6px 7px 0 var(--jw-shadow-color);
+  --jw-shadow-sm: 3px 4px 0 var(--jw-shadow-color);
+  --jw-gloss: linear-gradient(160deg, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0) 55%, rgba(0,0,0,0.1) 100%);
+  --jw-tile-bevel: inset 0 2px 0 rgba(255,255,255,0.5), inset 0 -5px 0 rgba(0,0,0,0.16);
+  --jw-extrude: 1px 1px 0 var(--jw-headline-shadow), 2px 2px 0 var(--jw-headline-shadow),
+                3px 3px 0 var(--jw-headline-shadow), 4px 4px 0 var(--jw-headline-shadow);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -103,14 +121,6 @@
   --jw-radius-tile: 12px;
   --jw-radius-sharp: 2px;
   --jw-border: 2px;
-
-  --jw-shadow-lg: 12px 12px 0 var(--jw-shadow-color), 0 28px 44px rgba(0, 0, 0, 0.2);
-  --jw-shadow-md: 6px 7px 0 var(--jw-shadow-color);
-  --jw-shadow-sm: 3px 4px 0 var(--jw-shadow-color);
-  --jw-gloss: linear-gradient(160deg, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0) 55%, rgba(0,0,0,0.1) 100%);
-  --jw-tile-bevel: inset 0 2px 0 rgba(255,255,255,0.5), inset 0 -5px 0 rgba(0,0,0,0.16);
-  --jw-extrude: 1px 1px 0 var(--jw-headline-shadow), 2px 2px 0 var(--jw-headline-shadow),
-                3px 3px 0 var(--jw-headline-shadow), 4px 4px 0 var(--jw-headline-shadow);
 }
 
 /* ---------- Ready-made pieces ---------- */

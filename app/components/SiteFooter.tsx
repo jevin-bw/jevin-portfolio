@@ -4,7 +4,7 @@ export default function SiteFooter() {
   return (
     <footer className="site-footer jw-band">
       <div className="container">
-        <Link href="/" className="logo">
+        <Link href="/home" className="logo">
           jevin&apos;s world
         </Link>
         <span>[Instagram] · [TikTok] · [Spotify]</span>

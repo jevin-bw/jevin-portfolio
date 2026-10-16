@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./jw-tokens.css";
 import "./globals.css";
-import SiteHeader from "./components/SiteHeader";
-import SiteFooter from "./components/SiteFooter";
+import { ThemeToggle } from "./components/ThemeToggle";
+import { EnterTransition } from "./components/EnterTransition";
 
 export const metadata: Metadata = {
   title: "jevin's world · Music worth sitting with",
@@ -12,18 +13,21 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#EFFAF6" },
+    { media: "(prefers-color-scheme: light)", color: "#D4EEF9" },
     { media: "(prefers-color-scheme: dark)", color: "#2B1055" },
   ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="jw-page-bg">
-        <SiteHeader />
+        <Script id="jw-theme" strategy="beforeInteractive">
+          {`(function(){try{var t=localStorage.getItem("jw-theme");if(t!=="light"&&t!=="dark"){t=location.pathname==="/"?"light":"dark";}document.documentElement.setAttribute("data-theme",t);}catch(e){}})();`}
+        </Script>
         {children}
-        <SiteFooter />
+        <EnterTransition />
+        <ThemeToggle />
       </body>
     </html>
   );
