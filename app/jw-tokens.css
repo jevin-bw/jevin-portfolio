@@ -1,0 +1,215 @@
+/* ==========================================================================
+   jevins.world design tokens
+   Light mode: Miami Mint · Dark mode: Miami Grape Night
+   Headline: Rammetto One · Body: Manrope
+   Usage: import this file once, then use the variables or the .jw-* classes.
+   Dark mode follows the visitor's system setting, or force it with
+   <html data-theme="dark"> / <html data-theme="light">.
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Rammetto+One&family=Manrope:wght@400;600;800&display=swap");
+
+/* ---------- Light: Miami Mint (default) ---------- */
+:root {
+  /* Surfaces */
+  --jw-bg: #EFFAF6;            /* page background */
+  --jw-surface: #FFFFFF;       /* cards, ticket, review boxes */
+  --jw-band: #0B1F3A;          /* quiz band, footer, mix tile */
+  --jw-on-band: #EFFAF6;
+  --jw-band-soft: #B9EDDD;     /* secondary text and labels on the band */
+
+  /* Text */
+  --jw-ink: #0B1F3A;           /* text on surface cards */
+  --jw-ink-muted: #3E5570;     /* bylines, meta */
+  --jw-on-bg: #0B1F3A;         /* text and lines sitting directly on the page bg */
+
+  /* Brand colour */
+  --jw-accent: #7A0D52;        /* berry: primary buttons, Diary tile */
+  --jw-on-accent: #FFFFFF;
+  --jw-kicker: #7A0D52;        /* small uppercase labels on the page bg */
+  --jw-kicker-on-surface: #7A0D52;
+
+  /* Pops (colour-coded tiles) */
+  --jw-pop-1: #FF9ECF;         /* pink: Playlist tile, ticket stub */
+  --jw-pop-2: #2EC4B6;         /* teal: Fresh find tile, newsletter, quiz button */
+  --jw-on-pop: #0B1F3A;
+
+  /* Depth */
+  --jw-shadow-color: #0B1F3A;  /* hard offset shadows */
+  --jw-headline-shadow: #FF9ECF; /* extruded headline */
+  --jw-grid-line: rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- Dark: Miami Grape Night ---------- */
+:root[data-theme="dark"] {
+  --jw-bg: #2B1055;
+  --jw-surface: #3D1A73;
+  --jw-band: #0B1F3A;
+  --jw-on-band: #EFFAF6;
+  --jw-band-soft: #FFE45C;
+  --jw-ink: #EFFAF6;
+  --jw-ink-muted: #C9B8E8;
+  --jw-on-bg: #EFFAF6;
+  --jw-accent: #FF9ECF;
+  --jw-on-accent: #2B1055;
+  --jw-kicker: #FF9ECF;
+  --jw-kicker-on-surface: #FF9ECF;
+  --jw-pop-1: #FFE45C;         /* yellow replaces pink on tiles in dark mode */
+  --jw-pop-2: #2EC4B6;
+  --jw-on-pop: #0B1F3A;
+  --jw-shadow-color: #EFFAF6;
+  --jw-headline-shadow: #0B1F3A;
+  --jw-grid-line: rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --jw-bg: #2B1055;
+    --jw-surface: #3D1A73;
+    --jw-band: #0B1F3A;
+    --jw-on-band: #EFFAF6;
+    --jw-band-soft: #FFE45C;
+    --jw-ink: #EFFAF6;
+    --jw-ink-muted: #C9B8E8;
+    --jw-on-bg: #EFFAF6;
+    --jw-accent: #FF9ECF;
+    --jw-on-accent: #2B1055;
+    --jw-kicker: #FF9ECF;
+    --jw-kicker-on-surface: #FF9ECF;
+    --jw-pop-1: #FFE45C;
+    --jw-pop-2: #2EC4B6;
+    --jw-on-pop: #0B1F3A;
+    --jw-shadow-color: #EFFAF6;
+    --jw-headline-shadow: #0B1F3A;
+    --jw-grid-line: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ---------- Type, shape and depth (same in both modes) ---------- */
+:root {
+  --jw-font-headline: "Rammetto One", system-ui, sans-serif;
+  --jw-font-body: "Manrope", system-ui, sans-serif;
+
+  --jw-text-display: 64px;     /* hero headline */
+  --jw-text-h2: 36px;
+  --jw-text-h3: 24px;
+  --jw-text-body: 17px;
+  --jw-leading-body: 28px;
+  --jw-text-small: 13px;
+  --jw-text-kicker: 12px;
+
+  --jw-radius-pill: 999px;
+  --jw-radius-card: 16px;
+  --jw-radius-tile: 12px;
+  --jw-radius-sharp: 2px;
+  --jw-border: 2px;
+
+  --jw-shadow-lg: 12px 12px 0 var(--jw-shadow-color), 0 28px 44px rgba(0, 0, 0, 0.2);
+  --jw-shadow-md: 6px 7px 0 var(--jw-shadow-color);
+  --jw-shadow-sm: 3px 4px 0 var(--jw-shadow-color);
+  --jw-gloss: linear-gradient(160deg, rgba(255,255,255,0.42) 0%, rgba(255,255,255,0) 55%, rgba(0,0,0,0.1) 100%);
+  --jw-tile-bevel: inset 0 2px 0 rgba(255,255,255,0.5), inset 0 -5px 0 rgba(0,0,0,0.16);
+  --jw-extrude: 1px 1px 0 var(--jw-headline-shadow), 2px 2px 0 var(--jw-headline-shadow),
+                3px 3px 0 var(--jw-headline-shadow), 4px 4px 0 var(--jw-headline-shadow);
+}
+
+/* ---------- Ready-made pieces ---------- */
+body {
+  margin: 0;
+  background: var(--jw-bg);
+  color: var(--jw-on-bg);
+  font-family: var(--jw-font-body);
+  font-size: var(--jw-text-body);
+  line-height: var(--jw-leading-body);
+}
+
+/* Gridded, vignetted page background */
+.jw-page-bg {
+  background:
+    radial-gradient(140% 120% at 50% 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.18) 100%),
+    repeating-linear-gradient(0deg, var(--jw-grid-line) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, var(--jw-grid-line) 0 1px, transparent 1px 24px),
+    var(--jw-bg);
+}
+
+.jw-headline {
+  font-family: var(--jw-font-headline);
+  font-weight: 400;
+  line-height: 1.08;
+  text-shadow: var(--jw-extrude);
+}
+
+.jw-kicker {
+  font-family: var(--jw-font-body);
+  font-size: var(--jw-text-kicker);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--jw-kicker);
+}
+
+.jw-card {
+  background: var(--jw-surface);
+  color: var(--jw-ink);
+  border: var(--jw-border) solid var(--jw-ink);
+  border-radius: var(--jw-radius-card);
+  box-shadow: var(--jw-shadow-md);
+}
+.jw-card .jw-kicker { color: var(--jw-kicker-on-surface); }
+
+.jw-tile {
+  border: 1.5px solid var(--jw-ink);
+  border-radius: var(--jw-radius-tile);
+  box-shadow: var(--jw-tile-bevel), 4px 5px 0 var(--jw-shadow-color);
+  color: var(--jw-on-pop);
+}
+.jw-tile--pop-1  { background: var(--jw-gloss), var(--jw-pop-1); }
+.jw-tile--pop-2  { background: var(--jw-gloss), var(--jw-pop-2); }
+.jw-tile--accent { background: var(--jw-gloss), var(--jw-accent); color: var(--jw-on-accent); }
+.jw-tile--band   { background: var(--jw-gloss), var(--jw-band);   color: var(--jw-on-band); }
+.jw-tile--surface{ background: var(--jw-gloss), var(--jw-surface); color: var(--jw-ink); }
+
+.jw-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: var(--jw-radius-pill);
+  border: 1.5px solid var(--jw-on-bg);
+  background: var(--jw-gloss), var(--jw-accent);
+  color: var(--jw-on-accent);
+  font: 800 15px/1 var(--jw-font-body);
+  text-decoration: none;
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2), var(--jw-shadow-sm);
+  cursor: pointer;
+  transition: transform 0.08s, box-shadow 0.08s;
+}
+.jw-btn:active { transform: translate(3px, 4px); box-shadow: inset 0 -3px 0 rgba(0,0,0,0.2); }
+.jw-btn--outline { background: var(--jw-surface); color: var(--jw-ink); border-width: 2px; }
+
+/* Today's pick gig ticket */
+.jw-ticket {
+  display: flex;
+  background: var(--jw-gloss), var(--jw-surface);
+  color: var(--jw-ink);
+  border: var(--jw-border) solid var(--jw-ink);
+  border-radius: var(--jw-radius-tile);
+  transform: perspective(700px) rotateY(-8deg) rotate(-2deg);
+  box-shadow: 7px 8px 0 var(--jw-shadow-color), 0 18px 28px rgba(0,0,0,0.25);
+  overflow: hidden;
+}
+.jw-ticket__stub {
+  border-left: var(--jw-border) dashed var(--jw-ink);
+  background: var(--jw-gloss), var(--jw-pop-1);
+  color: var(--jw-on-pop);
+}
+
+.jw-band {
+  background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 40%, rgba(0,0,0,0.2) 100%), var(--jw-band);
+  color: var(--jw-on-band);
+  box-shadow: inset 0 3px 0 rgba(0,0,0,0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jw-btn { transition: none; }
+}
